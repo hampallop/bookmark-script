@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: 'Kohitory',
-    description: 'Kohitory drip coffee visualization',
+    title: 'Bookmark Script Generator',
+    description: 'A site for generate bookmark script',
     author: '@hamcompe',
   },
   plugins: [
@@ -27,7 +27,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'kohitory',
+        name: 'bookmark-script',
         short_name: 'starter',
         start_url: '/',
         background_color: '#111',

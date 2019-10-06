@@ -37,9 +37,13 @@ const Layout = ({children}) => {
       >
         <main>{children}</main>
         <footer>
-          © {new Date().getFullYear()}, Inspired by{' '}
-          <a href="https://www.youtube.com/watch?v=wmCW8xSWGZY">
-            Tetsu Kasuya – 4:6 method
+          © {new Date().getFullYear()}, powered by{' '}
+          <a
+            href="https://github.com/hamcompe/bookmark-script"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            hamcompe
           </a>
         </footer>
       </div>

@@ -1,7 +1,7 @@
 {
-  "name": "kohitory",
+  "name": "bookmark-script",
   "private": true,
-  "description": "Kohitory coffee drip visualization",
+  "description": "A site for generate bookmark script",
   "version": "0.1.0",
   "author": "Pallop Chaoputhipuchong <pallop.chao@gmail.com>",
   "dependencies": {
@@ -48,6 +48,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hamcompe/kohitory"
+    "url": "https://github.com/hamcompe/bookmark-script"
   }
 }
