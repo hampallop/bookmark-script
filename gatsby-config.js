@@ -28,12 +28,12 @@ module.exports = {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'bookmark-script',
-        short_name: 'starter',
+        short_name: 'bookmark-script',
         start_url: '/',
-        background_color: '#111',
-        theme_color: '#111',
+        background_color: '#000',
+        theme_color: '#000',
         display: 'minimal-ui',
-        icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
+        icon: 'src/images/period.png', // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
