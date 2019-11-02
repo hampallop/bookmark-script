@@ -6,11 +6,26 @@ import {css} from '@emotion/core'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
+const colors = {
+  borderGrey: '#dadada',
+}
+
 const Label = styled.label`
   font-weight: 500;
 `
 const InputGroup = styled.div`
   margin-bottom: 0.25rem;
+`
+const Input = styled.input`
+  border: 1px solid ${colors.borderGrey};
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+`
+const Textarea = styled.textarea`
+  width: 100%;
+  border: 1px solid ${colors.borderGrey};
+  border-radius: 0.25rem;
+  padding: 0.5rem;
 `
 
 const prefixRegex = new RegExp('javascript:[(]function[(][)][ ]*[{]')
@@ -31,7 +46,7 @@ function IndexPage() {
       <SEO title="Home" />
       <InputGroup>
         <Label htmlFor="script-name">Script name: </Label>
-        <input
+        <Input
           type="text"
           name="script-name"
           id="script-name"
@@ -61,68 +76,59 @@ function IndexPage() {
           onChange={e => setIsDecode(e.target.checked)}
         />
       </InputGroup>
-
-      {isDecode ? (
-        <>
-          <Label htmlFor="script-input">Input: </Label>
-          <textarea
-            name="decoding-script"
-            id="decoding-script"
-            rows="7"
-            css={css`
-              width: 100%;
-            `}
-            placeholder="javascript:(function() {console.log('Hello%20world')})()"
-            value={decodeInput}
-            onChange={e => setDecodeInput(e.target.value)}
-          />
-          <Label htmlFor="decoded-output">Output: </Label>
-          <output htmlFor="decoding-script">
-            <textarea
-              name="decoded-output"
-              id="decoded-output"
+      <div
+        css={css`
+          margin-bottom: 2rem;
+        `}
+      >
+        {isDecode ? (
+          <>
+            <Label htmlFor="script-input">Input: </Label>
+            <Textarea
+              name="decoding-script"
+              id="decoding-script"
               rows="7"
-              readOnly
-              css={css`
-                width: 100%;
-                margin-bottom: 2rem;
-              `}
-              placeholder="console.log('Hello world')"
-              value={decodeScript(decodeInput)}
+              placeholder="javascript:(function() {console.log('Hello%20world')})()"
+              value={decodeInput}
+              onChange={e => setDecodeInput(e.target.value)}
             />
-          </output>
-        </>
-      ) : (
-        <>
-          <Label htmlFor="script-input">Input: </Label>
-          <textarea
-            name="script-input"
-            id="script-input"
-            rows="7"
-            css={css`
-              width: 100%;
-            `}
-            placeholder="put your lovely JavaScript here"
-            value={input}
-            onChange={e => setInput(e.target.value)}
-          />
-          <Label htmlFor="script-output">Output: </Label>
-          <output htmlFor="script-input">
-            <textarea
-              name="script-output"
-              id="script-output"
+            <Label htmlFor="decoded-output">Output: </Label>
+            <output htmlFor="decoding-script">
+              <Textarea
+                name="decoded-output"
+                id="decoded-output"
+                rows="7"
+                readOnly
+                placeholder="console.log('Hello world')"
+                value={decodeScript(decodeInput)}
+              />
+            </output>
+          </>
+        ) : (
+          <>
+            <Label htmlFor="script-input">Input: </Label>
+            <Textarea
+              name="script-input"
+              id="script-input"
               rows="7"
-              readOnly
-              css={css`
-                width: 100%;
-                margin-bottom: 2rem;
-              `}
-              placeholder="your output script"
-              value={generateBookmarkOutput(input)}
+              placeholder="put your lovely JavaScript here"
+              value={input}
+              onChange={e => setInput(e.target.value)}
             />
-          </output>
-        </>
-      )}
+            <Label htmlFor="script-output">Output: </Label>
+            <output htmlFor="script-input">
+              <Textarea
+                name="script-output"
+                id="script-output"
+                rows="7"
+                readOnly
+                placeholder="your output script"
+                value={generateBookmarkOutput(input)}
+              />
+            </output>
+          </>
+        )}
+      </div>
     </Layout>
   )
 }
